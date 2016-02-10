@@ -26,7 +26,7 @@ def main():
     
 
     try:
-        opts, args = getopt.getopt(sys.argv[1:], 's:o:i:d:', ["os=","output-path=","hostname="])
+        opts, args = getopt.getopt(sys.argv[1:], 's:o:i:d:', ["os=","output-path=","hostname=","ip="])
     except getopt.GetoptError:
         print("Bad parameters given")
         sys.exit(2)
@@ -49,7 +49,7 @@ def main():
 
 ##########  START APPLICATION  ##########
 
-    stuff(hostname, devIPAddress, oses[os], outputPath)
+    makeVagrantFile(hostname, devIPAddress, oses[os], outputPath)
 
 
 ##########  END ##########
