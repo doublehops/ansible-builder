@@ -1,7 +1,7 @@
 
 from functions import *
 
-def makeVagrantFile(config, vagrantbox):
+def createVagrantFile(config, vagrantbox):
 
     params = { 'hostname': config['vagrantHostname'],
                'ipaddress': config['vagrantIPAddress'],
