@@ -3,7 +3,6 @@
 import sys, getopt
 
 from vagrant import *
-from help import *
 from config import *
 
 

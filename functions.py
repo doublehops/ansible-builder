@@ -1,16 +1,17 @@
-import shutil, pprint, subprocess, re
+import re
 
 def copyTemplate(source, dest, params):
 
-    # First copy source file to destination
-    shutil.copyfile(source, dest)
-    regexStr = ''
+    # Read from source file
+    f = open(source, 'r')
+    lines = f.read()
+    f.close()
 
+    # Replace config options
     for (key, value) in params.items():
-        print("{} = {}".format(key, value))
-        regexStr = regexStr + 's/{{'+ key +'}}/'+ re.escape(value) +'/g;'
+        lines = re.sub('{{'+ key +'}}', value, lines)
 
-
-    print('exp: '+ regexStr)
-
-    subprocess.call(['sed -e "'+ regexStr +'" <'+ source +' > '+ dest], shell=True);
+    # Write new file
+    f = open(dest, 'w')
+    f.write(lines)
+    f.close()
