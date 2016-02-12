@@ -4,4 +4,13 @@ config = {
     'operatingSystem': 'debian',
     'webServer': 'apache',
     'outputPath': 'output',
+    'tasks': {
+        'php7': {},
+        'mysql': {
+            'rootPassword': 'root12',
+            'username': 'dev',
+            'password': 'pass12',
+            'database': 'proj',
+        },
+    },
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import sys, getopt
+import sys, getopt, pprint
 
 from vagrant import *
 from hardcodedvalues import *
@@ -9,8 +9,9 @@ from config import *
 
 def main():
 
+    config = readJsonFile('config')
     makeVagrantFile(config, oses[config['operatingSystem']]['vagrantbox'])
-
+    
 
 ##########  END ##########
 
