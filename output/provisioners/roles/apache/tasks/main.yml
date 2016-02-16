@@ -1,0 +1,41 @@
+---
+- name: Apache | Install Apache
+  apt: pkg=apache2 state=latest force=yes
+
+- name: Apache | Enable mod_rewrite
+  apache2_module: state=present name=rewrite
+
+- name: Apache | Check vhosts path exists
+  file: dest=/etc/apache2/sites-available state=directory
+
+- name: Apache | Remove default index file
+  file: dest=/var/www/index.html state=absent
+
+- name: Apache | Copy vhost files
+  copy: src="{{ templates_dir }}/apache/{{env}}.conf" dest=/etc/apache2/sites-available/default.conf owner=root group=root mode=666
+  notify: 
+  - apache2-restart
+
+- name: Apache | Create vhost symlinks
+  file: path=/etc/apache2/sites-enabled/default.conf state=link src=/etc/apache2/sites-available/default.conf
+  notify: 
+  - apache2-restart
+
+- name: Apache | Remove default vhost
+  file: dest=/etc/apache2/sites-available/000-default state=absent
+- name: Apache | Remove default vhost enabled symlink
+  file: dest=/etc/apache2/sites-enabled/000-default state=absent
+
+- name: Apache | Ensure directory exists
+  file: dest=/var/www state=directory owner="{{system_user}}" group="{{system_user}}"
+
+- name: Apache | Ensure log directory exists
+  file: dest=/var/log/apache2 state=directory
+
+- name: Apache | Ensure Apache is running
+  service:
+    name=apache2
+    state=started
+
+- name: Apache | Remove default web path
+  file: dest=/var/www/html state=absent

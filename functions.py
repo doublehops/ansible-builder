@@ -1,4 +1,4 @@
-import re, json, os.path, sys
+import re, json, os.path, sys, shutil
 
 
 def copyTemplate(source, dest, params):
@@ -35,3 +35,14 @@ def readJsonFile(source):
         print('Unable to parse JSON data: '+ file)
 
     return data
+
+
+def createPath(path):
+
+    if not os.path.exists(path):
+        os.mkdir(path)
+
+def addRoleToPlaybook(outputPath, role):
+    
+    playbookFile = outputPath +'/provisioners/playbook.yml'
+    copyTemplate(playbookFile, playbookFile, {'roles': '- '+ role +"\n    {{roles}}"})
