@@ -1,10 +1,10 @@
 <VirtualHost *:80>
 
-    ServerName "{{hostname}}"
-    DocumentRoot "{{docroot}}"
+    ServerName {{hostname}}
+    DocumentRoot {{docroot}}
     RewriteEngine On
 
-    <Directory /var/www/frontend/web>
+    <Directory {{docroot}}>
         Options FollowSymLinks
         AllowOverride all
         Order allow,deny
