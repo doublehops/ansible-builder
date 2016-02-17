@@ -1,5 +1,5 @@
 ---
-- include_vars: "roles/apache/vars/{{env}}.yml"
+- include_vars: "vars/{{env}}.yml"
 
 - name: Apache | Install Apache
   apt: pkg=apache2 state=latest force=yes
@@ -14,7 +14,7 @@
   file: dest=/var/www/index.html state=absent
 
 - name: Apache | Copy vhost files
-  template: src="roles/apache/templates/{{env}}.j2" dest=/etc/apache2/sites-available/default.conf owner=root group=root mode=666
+  template: src="templates/{{env}}.j2" dest=/etc/apache2/sites-available/default.conf owner=root group=root mode=666
   notify: 
   - apache2-restart
 
