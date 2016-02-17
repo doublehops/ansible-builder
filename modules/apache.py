@@ -3,7 +3,7 @@ import shutil
 from functions import *
 
 def include_apache(outputPath, params):
-    print('including apache')
+
     shutil.copytree('provisioners/roles/apache', outputPath +'/provisioners/roles/apache')
     templateVars = {'hostname': params['hostname'],
                     'docroot': params['docroot'],

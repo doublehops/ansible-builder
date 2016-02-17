@@ -1,8 +1,10 @@
-import shutil, pprint, os
+import shutil, pprint, os, sys
 
 from functions import *
 
-def setupProvisioner(outputPath):
+def setupProvisioner(outputPath, vagrantHostname):
+
+    print('-- Setting up provisioner --')
 
     if os.path.isdir(outputPath +'/Vagrantfile'):
         shutil.rmtree(outputPath +'/VagrantFile')
@@ -11,9 +13,14 @@ def setupProvisioner(outputPath):
     createPath(outputPath)
     createPath(outputPath +'/provisioners')
     createPath(outputPath +'/provisioners/roles')
+    if os.path.isdir(outputPath +'/dev'):
+        shutil.rmtree(outputPath +'/dev')
+    shutil.copytree('dev', outputPath +'/dev')
 
-    shutil.copytree('provisioners/tasks', outputPath +'/provisioners/tasks')
+    shutil.copytree('provisioners/roles/common', outputPath +'/provisioners/roles/common')
     shutil.copy('provisioners/playbook.yml', outputPath +'/provisioners')
+    devHostFile = outputPath +'/provisioners/local_dev_hosts'
+    copyTemplate('provisioners/local_dev_hosts', devHostFile, {'vagrantHostname': vagrantHostname})
 
 def cleanupProvisioner(outputPath):
 

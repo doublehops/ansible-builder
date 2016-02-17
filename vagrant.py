@@ -3,6 +3,8 @@ from functions import *
 
 def createVagrantFile(config, vagrantbox):
 
+    print('-- Creating Vagrantfile --')
+
     params = { 'hostname': config['vagrantHostname'],
                'ipaddress': config['vagrantIPAddress'],
                'vagrantbox': vagrantbox,

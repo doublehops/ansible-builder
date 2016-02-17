@@ -1,6 +1,6 @@
 config = {
-    'vagrantHostname': 're.sub.com',
-    'vagrantIPAddress': '192.168.30.32',
+    'vagrantHostname': 'auto.api',
+    'vagrantIPAddress': '192.168.30.39',
     'operatingSystem': 'ubuntu',
     'outputPath': '/var/www/autoproject',
     'tasks': {

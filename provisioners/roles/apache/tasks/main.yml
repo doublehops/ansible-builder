@@ -12,7 +12,7 @@
   file: dest=/var/www/index.html state=absent
 
 - name: Apache | Copy vhost files
-  copy: src="{{ templates_dir }}/apache/{{env}}.conf" dest=/etc/apache2/sites-available/default.conf owner=root group=root mode=666
+  copy: src="roles/apache/templates/{{env}}.conf" dest=/etc/apache2/sites-available/default.conf owner=root group=root mode=666
   notify: 
   - apache2-restart
 
@@ -27,7 +27,7 @@
   file: dest=/etc/apache2/sites-enabled/000-default state=absent
 
 - name: Apache | Ensure directory exists
-  file: dest=/var/www state=directory owner="{{system_user}}" group="{{system_user}}"
+  file: dest=/var/www state=directory owner="{{ansible_user}}" group="{{ansible_user}}"
 
 - name: Apache | Ensure log directory exists
   file: dest=/var/log/apache2 state=directory

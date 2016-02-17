@@ -3,9 +3,6 @@
   user: vagrant
   sudo: yes
 
-  tasks:
-    - include: tasks/base.yml
-    - include: tasks/environment.yml
-
   roles:
+    - common
     {{roles}}
