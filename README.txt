@@ -15,7 +15,7 @@ create a record in your ~/.ssh/config file with a custom hostname and the IP
 that matches the one you assigned in Vagrantfile. Something like:
 
  ``
- Host <host> # Just a shortcut/nickname. eg. project.api
+ Host <host> # Just a shortcut/nickname. eg. VM IP address or alias configured in /etc/hosts.
  User vagrant # `vagrant` is the username for vagrant machines
  Hostname project.api # The hostname you have defined in /etc/hosts
  IdentityFile <working_dir>/.vagrant/somepath_to_private_key // find value with `vagrant ssh-config`
