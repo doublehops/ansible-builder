@@ -5,8 +5,8 @@ config = {
     'outputPath': '/var/www/autoproject',
     'tasks': {
         'apache': {
-            'hostname': 'www.somedomain.com',
-            'docroot': '/var/www',
+            'hostname': 'auto.api',
+            'docroot': '/var/www/web',
         },
 #        'php7': None,
 #        'mysql': {

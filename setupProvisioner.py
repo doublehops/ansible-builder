@@ -19,8 +19,8 @@ def setupProvisioner(outputPath, vagrantHostname):
 
     shutil.copytree('provisioners/roles/common', outputPath +'/provisioners/roles/common')
     shutil.copy('provisioners/playbook.yml', outputPath +'/provisioners')
-    devHostFile = outputPath +'/provisioners/local_dev_hosts'
-    copyTemplate('provisioners/local_dev_hosts', devHostFile, {'vagrantHostname': vagrantHostname})
+    devHostFile = outputPath +'/provisioners/ansible_hosts'
+    copyTemplate('provisioners/ansible_hosts', devHostFile, {'vagrantHostname': vagrantHostname})
 
 def cleanupProvisioner(outputPath):
 
