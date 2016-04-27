@@ -1,8 +1,17 @@
+<style type="text/css">
+tr, td {
+    text-align: left;
+}
+</style>
+
 <title>Webserver</title>
 
-<h1>Webserver setup by b2common provisioner</h1>
+<h1>Webserver provsioned by a b2common project</h1>
 
 <table>
-    <tr><th>hostname:</th><td>{{hostname}}</tr>
-    <tr><th>docroot:</th><td>{{docroot}}</tr>
+    <tr><th>Hostname:</th><td><?= $_SERVER['HTTP_HOST'] ?></td></tr>
+    <tr><th>IP Address:</th><td><?= $_SERVER['SERVER_ADDR'] ?></td></tr>
+    <tr><th>Docroot:</th><td><?= $_SERVER['DOCUMENT_ROOT'] ?></td></tr>
+    <tr><th>Webserver:</th><td><?= $_SERVER['SERVER_SIGNATURE'] ?></td></tr>
+    <tr><th>PHP:</th><td><?= phpversion() ?></td></tr>
 </table>

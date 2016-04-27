@@ -1,7 +1,7 @@
 import re, json, os.path, sys, shutil
 
 
-def copyTemplate(source, dest, params):
+def copyTemplate(source, dest, params=[]):
 
     # Read from source file
     f = open(source, 'r')
@@ -9,8 +9,9 @@ def copyTemplate(source, dest, params):
     f.close()
 
     # Replace config options
-    for (key, value) in params.items():
-        file = re.sub('{{'+ key +'}}', value, file)
+    if len(params) > 0:
+        for (key, value) in params.items():
+            file = re.sub('{{'+ key +'}}', value, file)
 
     # Write new file
     f = open(dest, 'w')
@@ -39,8 +40,7 @@ def readJsonFile(source):
 
 def createPath(path):
 
-    if not os.path.exists(path):
-        os.mkdir(path)
+    os.makedirs(path, exist_ok=True)
 
 def addRoleToPlaybook(outputPath, role):
     

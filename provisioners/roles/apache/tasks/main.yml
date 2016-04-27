@@ -39,7 +39,7 @@
   file: dest="{{docroot}}" state=directory owner="{{ansible_user}}" group="{{ansible_user}}"
 
 - name: Apache | Copy index template
-  template: src="templates/index.j2" dest="{{docroot}}/index.html" owner="{{ansible_user}}" group="{{ansible_user}}" mode=755
+  template: src="templates/index.j2" dest="{{docroot}}/index.php" owner="{{ansible_user}}" group="{{ansible_user}}" mode=755
 
 - name: Apache | Ensure log directory exists
   file: dest=/var/log/apache2 state=directory

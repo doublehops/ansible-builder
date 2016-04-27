@@ -1,0 +1,5 @@
+---
+
+  - name: Add PHP7 PPA
+    apt_repository: repo='ppa:ondrej/php' update_cache=yes
+

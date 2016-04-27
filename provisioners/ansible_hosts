@@ -1,2 +1,2 @@
 [local_dev]
-{{vagrantHostname}} ansible_user=vagrant ansible_ssh_pass=vagrant env=local_dev
+{{vagrantHostname}} system_user=vagrant ansible_ssh_pass=vagrant env=local_dev
