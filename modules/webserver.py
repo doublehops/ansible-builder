@@ -8,6 +8,7 @@ def include_webserver(outputPath, params):
     templateVars = {'hostname': params['hostname'],
                     'docroot': params['docroot'],
     }
+    templateVars['hostTemplate'] = 'templates/local_dev_'+ params['type'] +'.j2'
     varsFile = outputPath +'/provisioners/roles/webserver/vars/local_dev.yml'
     copyTemplate(varsFile, varsFile, templateVars)
 

@@ -9,7 +9,7 @@ def include_php7(outputPath, params):
         taskSrc = 'provisioners/roles/php7/tasks/php7-apache.yml'
     if params['webserver'] == 'nginx':
         phpHttpModule = 'php7.0-fpm'
-        taskSrc = '/provisioners/roles/php7/tasks/php7-nginx.yml'
+        taskSrc = 'provisioners/roles/php7/tasks/php7-nginx.yml'
 
     print('including php module')
     print('webserver: ', params['webserver'])

@@ -1,7 +1,9 @@
 <style type="text/css">
-tr, td {
-    text-align: left;
-}
+table {border-collapse: collapse; border: 0; width: 934px; box-shadow: 1px 2px 3px #ccc;}
+.center {text-align: center;}
+.center table {margin: 1em auto; text-align: left;}
+.center th {text-align: center !important;}
+td, th {border: 1px solid #666; font-size: 75%; vertical-align: baseline; padding: 4px 5px;}
 </style>
 
 <title>Webserver</title>
@@ -13,6 +15,6 @@ tr, td {
     <tr><th>IP Address:</th><td><?= $_SERVER['SERVER_ADDR'] ?></td></tr>
     <tr><th>Docroot:</th><td><?= $_SERVER['DOCUMENT_ROOT'] ?></td></tr>
     <tr><th>Operating System</th><td><?= system('uname -a') ?></td></tr>
-    <tr><th>Webserver:</th><td><?= $_SERVER['SERVER_SIGNATURE'] ?></td></tr>
+    <tr><th>Webserver:</th><td><?= $_SERVER['SERVER_SIGNATURE'] . $_SERVER['SERVER_SOFTWARE'] ?></td></tr>
     <tr><th>PHP:</th><td><?= phpversion() ?></td></tr>
 </table>
