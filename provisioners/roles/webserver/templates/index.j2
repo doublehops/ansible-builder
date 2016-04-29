@@ -12,6 +12,7 @@ tr, td {
     <tr><th>Hostname:</th><td><?= $_SERVER['HTTP_HOST'] ?></td></tr>
     <tr><th>IP Address:</th><td><?= $_SERVER['SERVER_ADDR'] ?></td></tr>
     <tr><th>Docroot:</th><td><?= $_SERVER['DOCUMENT_ROOT'] ?></td></tr>
+    <tr><th>Operating System</th><td><?= system('uname -a') ?></td></tr>
     <tr><th>Webserver:</th><td><?= $_SERVER['SERVER_SIGNATURE'] ?></td></tr>
     <tr><th>PHP:</th><td><?= phpversion() ?></td></tr>
 </table>
