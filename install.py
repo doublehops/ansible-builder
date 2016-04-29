@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import sys, getopt, pprint
+from collections import OrderedDict
 
 from vagrant import *
 from hardcodedvalues import *

@@ -10,7 +10,8 @@ config = {
         'add_ppas': {
             'operatingSystem': operatingSystem,
         },
-        'apache': {
+        'webserver': {
+            'type': webserver,
             'hostname': 'auto.api',
             'docroot': '/var/www/web',
         },

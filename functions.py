@@ -1,4 +1,4 @@
-import re, json, os.path, sys, shutil
+import re, json, os.path, sys, shutil, pprint
 
 
 def copyTemplate(source, dest, params=[]):
@@ -46,3 +46,9 @@ def addRoleToPlaybook(outputPath, role):
     
     playbookFile = outputPath +'/provisioners/playbook.yml'
     copyTemplate(playbookFile, playbookFile, {'roles': '- '+ role +"\n    {{roles}}"})
+
+def dd(obj):
+
+    print('---------------------------------------------')
+    pprint.pprint(obj)
+    print('---------------------------------------------')
