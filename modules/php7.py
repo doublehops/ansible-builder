@@ -15,14 +15,6 @@ def include_php7(outputPath, params):
     print('webserver: ', params['webserver'])
     shutil.copytree('provisioners/roles/php7', outputPath +'/provisioners/roles/php7')
 
-#    dv(params)
-#    if params['webserver'] == 'apache':
-#        taskSrc = 'provisioners/roles/php7/tasks/php7-apache.yml'
-#    elif params['webserver'] == 'nginx':
-#        taskSrc = '/provisioners/roles/php7/tasks/php7-nginx.yml'
-#    else:
-#        taskSrc = 'no source'
-
     print('webserver: '+ params['webserver']);
     print('taskSrc: '+ taskSrc)
     taskDest = outputPath +'/provisioners/roles/php7/tasks/main.yml'
