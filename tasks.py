@@ -4,6 +4,7 @@ import collections
 from functions import *
 from modules.webserver import *
 from modules.php7 import *
+from modules.database import *
 from modules.add_ppas import *
 
 def createTasks(tasks, outputPath):

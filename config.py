@@ -18,11 +18,14 @@ config = {
         'php7': {
             'webserver': webserver,
         },
-#        'mysql': {
-#            'rootPassword': 'root12',
-#            'username': 'dev',
-#            'password': 'pass12',
-#            'database': 'proj',
-#        },
+        'database': {
+            'type': 'mysql',
+            'operatingSystem': operatingSystem,
+            'root_password': 'root12',
+            'username': 'dev',
+            'password': 'pass12',
+            'database': 'proj',
+            'test_database': 'proj_test',
+        },
     },
 }

@@ -1,0 +1,6 @@
+---
+root_password: {{root_password}}
+username: {{username}}
+password: {{password}}
+database: {{database}}
+test_database: {{test_database}}
