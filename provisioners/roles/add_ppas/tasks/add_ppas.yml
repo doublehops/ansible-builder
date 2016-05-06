@@ -1,7 +1,6 @@
 ---
-
   - name: Add PHP7 PPA
-    apt_repository: repo='deb http://ppa.launchpad.net/ondrej/php-7.0/ubuntu trusty main' state=present
+    apt_repository: repo='deb http://ppa.launchpad.net/ondrej/php/ubuntu trusty main' state=present
   - name: Add PHP7 PPA src
-    apt_repository: repo='deb-src http://ppa.launchpad.net/ondrej/php-7.0/ubuntu trusty main' state=present
+    apt_repository: repo='deb-src http://ppa.launchpad.net/ondrej/php/ubuntu  trusty main' state=present
 
