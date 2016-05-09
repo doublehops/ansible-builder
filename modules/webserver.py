@@ -12,7 +12,7 @@ def include_webserver(outputPath, params):
     varsFile = outputPath +'/provisioners/roles/webserver/vars/local_dev.yml'
     copyTemplate(varsFile, varsFile, templateVars)
 
-    vhostSrc = outputPath +'/provisioners/roles/webserver/tasks/'+ params['type'] +'.yml'
+    vhostSrc = outputPath +'/provisioners/roles/webserver/tasks/'+params['operating_system'] +'-'+ params['type'] +'.yml'
     vhostDest = outputPath +'/provisioners/roles/webserver/tasks/main.yml'
     copyTemplate(vhostSrc, vhostDest, templateVars)
 
