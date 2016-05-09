@@ -19,7 +19,7 @@ config = {
             'webserver': webserver,
         },
         'database': {
-            'type': 'mysql',
+            'type': 'mariadb',
             'operatingSystem': operatingSystem,
             'root_password': 'root12',
             'username': 'dev',
