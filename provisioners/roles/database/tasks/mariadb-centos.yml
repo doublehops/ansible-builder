@@ -1,0 +1,28 @@
+---
+  - include_vars: "vars/{{env}}.yml"
+
+  - name: Mariadb | Install Mariadb
+    apt: pkg={{ item }} state=installed force=yes
+    with_items:
+      - mariadb-server
+      - mariadb-client
+      - python-mysql.connector
+      - python-mysqldb
+
+  - name: Mariadb | Set root password
+    mysql_user: name=root password={{ root_password }} priv=*.*:ALL,GRANT state=present
+
+  - name: Mariadb | Copy root password config to root user
+    template: src="templates/my.cnf.j2" dest=/root/.my.cnf
+
+  - name: Mariadb | Create dev user
+    mysql_user: login_user=root login_password={{ root_password }} name={{ username }} password={{ password }} priv=*.*:ALL,GRANT state=present
+
+  - name: Mariadb | Create development database
+    mysql_db: name={{ database }}
+
+  - name: Mariadb | Create test database
+    mysql_db: name={{ test_database }}
+
+  - name: Mariadb | Check that database backup path exists
+    file: dest=/var/www/files/database state=directory mode=777

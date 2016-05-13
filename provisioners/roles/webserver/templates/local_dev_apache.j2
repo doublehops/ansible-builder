@@ -28,8 +28,8 @@
     </Directory>
 
     LogLevel info
-    ErrorLog /var/log/apache2/error.log
-    CustomLog /var/log/apache2/access.log combined
+    ErrorLog /var/log/{{log_file_type}}/error.log
+    CustomLog /var/log/{{log_file_type}}/access.log combined
 
     RewriteEngine On
 

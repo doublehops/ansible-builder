@@ -1,5 +1,5 @@
-operating_system = 'ubuntu'
-webserver = 'nginx'
+operating_system = 'centos'
+webserver = 'apache'
 
 config = {
     'vagrantHostname': 'auto.api',
