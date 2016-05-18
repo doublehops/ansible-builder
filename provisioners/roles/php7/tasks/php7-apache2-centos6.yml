@@ -1,0 +1,22 @@
+---
+  - name: Install php7.0
+    yum: pkg={{ item }} state=latest
+    with_items:
+      - mod_ssl
+      - php70w
+      - php70w-cli
+      - php70w-common
+      - php70w-devel
+      - php70w-gd
+      - php70w-mbstring
+      - php70w-mysql
+      - php70w-pdo
+      - php70w-pear
+      - php70w-process
+      - php70w-xml
+    notify: apache2-restart
+
+  - name: PHP | PHPDev | Install composer
+    shell:
+      curl -sS https://getcomposer.org/installer | /usr/bin/php && /bin/mv -f composer.phar /usr/local/bin/composer
+      creates=/usr/local/bin/composer

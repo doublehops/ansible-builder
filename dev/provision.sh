@@ -8,4 +8,4 @@ fi
 
 host=$1
 
-/usr/bin/ansible-playbook provisioners/playbook.yml -i "provisioners/ansible_hosts" --limit $host
+/usr/bin/ansible-playbook provisioners/playbook.yml -i "provisioners/ansible_hosts" --limit $host $2

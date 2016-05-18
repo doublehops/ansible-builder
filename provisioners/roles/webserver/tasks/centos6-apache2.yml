@@ -26,11 +26,3 @@
 
 - name: Apache | Ensure log directory exists
   file: dest=/var/log/httpd state=directory
-
-- name: Apache | Ensure Apache is running
-  service:
-    name=httpd
-    state=started
-
-- name: Apache | Remove default web path
-  file: dest=/var/www/html state=absent

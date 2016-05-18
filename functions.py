@@ -52,3 +52,13 @@ def dd(obj):
     print('---------------------------------------------')
     pprint.pprint(obj)
     print('---------------------------------------------')
+
+def getFamily(operatingSystem):
+
+    redhatFamily = ['redhat','centos6','centos7']
+    debianFamily = ['debian','ubuntu']
+
+    if operatingSystem in redhatFamily:
+        return 'redhat'
+    if operatingSystem in debianFamily:
+        return 'debian'

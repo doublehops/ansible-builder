@@ -15,7 +15,7 @@ def main():
 
     outputPath = config['outputPath']
     setupProvisioner(outputPath, config['vagrantHostname'])
-    createVagrantFile(config, oses[config['operating_system']]['vagrantbox'])
+    createVagrantFile(config, oses)
     createTasks(config['tasks'], outputPath)
     cleanupProvisioner(outputPath)
 

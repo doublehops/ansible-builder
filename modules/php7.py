@@ -4,12 +4,7 @@ from functions import *
 
 def include_php7(outputPath, params):
 
-    if params['webserver'] == 'apache':
-        phpHttpModule = 'libapache2-mod-php7.0'
-        taskSrc = 'provisioners/roles/php7/tasks/php7-apache.yml'
-    if params['webserver'] == 'nginx':
-        phpHttpModule = 'php7.0-fpm'
-        taskSrc = 'provisioners/roles/php7/tasks/php7-nginx.yml'
+    taskSrc = 'provisioners/roles/php7/tasks/php7-'+ params['webserver'] +'-'+ params['operating_system'] +'.yml'
 
     print('including php module')
     print('webserver: ', params['webserver'])

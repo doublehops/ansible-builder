@@ -1,9 +1,9 @@
-operating_system = 'centos'
-webserver = 'apache'
+operating_system = 'centos6'
+webserver = 'apache2'
 
 config = {
     'vagrantHostname': 'auto.api',
-    'vagrantIPAddress': '192.168.30.39',
+    'vagrantIPAddress': '192.168.30.10',
     'operating_system': operating_system,
     'outputPath': '/var/www/autoproject',
     'tasks': {
@@ -18,9 +18,10 @@ config = {
         },
         'php7': {
             'webserver': webserver,
+            'operating_system': operating_system,
         },
         'database': {
-            'type': 'mariadb',
+            'type': 'mysql',
             'operating_system': operating_system,
             'root_password': 'root12',
             'username': 'dev',

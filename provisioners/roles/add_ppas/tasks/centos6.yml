@@ -1,0 +1,6 @@
+---
+- name: Add PHP7 PPA
+  yum: 
+    name: "https://mirror.webtatic.com/yum/el6/latest.rpm"
+    state: present
+

@@ -1,4 +1,4 @@
 ---
 hostname: {{hostname}}
 docroot: {{docroot}}
-log_file_type: {{type}}
+log_file_type: {{log_file_type}}

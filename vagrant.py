@@ -1,13 +1,14 @@
 
 from functions import *
 
-def createVagrantFile(config, vagrantbox):
+def createVagrantFile(config, oses):
 
     print('-- Creating Vagrantfile --')
 
     params = { 'hostname': config['vagrantHostname'],
                'ipaddress': config['vagrantIPAddress'],
-               'vagrantbox': vagrantbox,
+               'vagrantbox': oses[config['operating_system']]['vagrantbox'],
+               'vagrantbox_url': oses[config['operating_system']]['vagrantbox_url'],
     }
 
     source = 'files/Vagrantfile'
