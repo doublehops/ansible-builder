@@ -39,3 +39,4 @@
 
 - name: Nginx | Copy index template
   template: src="templates/index.j2" dest="{{docroot}}/index.php" owner="{{ansible_user}}" group="{{ansible_user}}" mode=755
+  notify: nginx-restart
