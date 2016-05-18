@@ -5,6 +5,7 @@
   apt:
     pkg=nginx
     state=latest
+    force=yes
 
 - name: Nginx | Remove default vhost
   file: dest=/etc/nginx/sites-available/default state=absent
