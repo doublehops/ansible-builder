@@ -14,7 +14,7 @@
       - php70w-pear
       - php70w-process
       - php70w-xml
-    notify: apache2-restart
+    notify: httpd-restart
 
   - name: PHP | PHPDev | Install composer
     shell:

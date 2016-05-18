@@ -4,8 +4,9 @@
   - name: install yum replace plugin
     yum: state=present name=yum-plugin-replace
 
-#  - name: upgrade mysql version 
-#    command: yum -y replace mysql-libs --replace-with mysql55w-libs
+  - name: upgrade mysql version 
+    command: yum -y replace mysql-libs --replace-with mysql55w-libs
+    ignore_errors: True
 
   - name: MySQL | Install MySQL
     yum: pkg={{ item }} state=installed
