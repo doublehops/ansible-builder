@@ -1,5 +1,5 @@
 operating_system = 'centos6'
-webserver = 'apache2'
+webserver = 'nginx'
 
 config = {
     'vagrantHostname': 'auto.api',
