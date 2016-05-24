@@ -8,6 +8,7 @@
     - vim
     - git
     - ntp
+    - libselinux-python
 
 - name: Bash | Copy Bash alias file for root
   template: src="bash_aliases.j2" dest=~/.bash_aliases mode=0700
