@@ -8,7 +8,8 @@ def createVagrantFile(config, oses):
     params = { 'hostname': config['vagrantHostname'],
                'ipaddress': config['vagrantIPAddress'],
                'vagrantbox': oses[config['operating_system']]['vagrantbox'],
-               'vagrantbox_url': oses[config['operating_system']]['vagrantbox_url'],
+               'vagrantboxUrl': oses[config['operating_system']]['vagrantbox_url'],
+               'webserverProcessOwner': config['webserverProcessOwner'],
     }
 
     source = 'files/Vagrantfile'
