@@ -6,6 +6,7 @@ config = {
     'vagrantIPAddress': '192.168.30.10',
     'operating_system': operating_system,
     'outputPath': '/var/www/autoproject',
+    'webserverProcessOwner': 'nginx', # nginx for centos6 nginx, www-data for all others
     'tasks': {
         'add_ppas': {
             'operating_system': operating_system,

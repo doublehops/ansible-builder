@@ -3,7 +3,7 @@
 import sys, getopt, pprint
 from collections import OrderedDict
 
-from vagrant import *
+from modules.vagrant import *
 from hardcodedvalues import *
 from config import *
 from tasks import *
