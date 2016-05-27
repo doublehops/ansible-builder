@@ -1,9 +1,3 @@
 ---
 - include_vars: "vars/{{env}}.yml"
-#- include: "{{ansible_os_family}}.yml"
-
-- include: Debian.yml
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-
-- include: RedHat.yml
-  when: ansible_distribution == 'RedHat' or ansible_distribution == 'CentOS'
+- include: "{{ansible_os_family}}.yml"

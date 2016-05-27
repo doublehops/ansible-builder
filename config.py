@@ -5,7 +5,7 @@ config = {
     'vagrantHostname': 'auto.api',
     'vagrantIPAddress': '192.168.30.10',
     'operating_system': operating_system,
-    'outputPath': '/var/www/autoproject',
+    'outputPath': '/Users/b2cloud/projects/autoproject',
     'webserverProcessOwner': 'nginx', # nginx for centos6 nginx, www-data for all others
     'tasks': {
         'add_ppas': {
