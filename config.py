@@ -11,12 +11,12 @@ config = {
         'add_ppas': {
             'operating_system': operating_system,
         },
-#        'webserver': {
-#            'type': webserver,
-#            'hostname': 'auto.api',
-#            'docroot': '/var/www/web',
-#            'operating_system': operating_system,
-#        },
+        'webserver': {
+            'type': webserver,
+            'hostname': 'auto.api',
+            'docroot': '/var/www/web',
+            'operating_system': operating_system,
+        },
 #        'php7': {
 #            'webserver': webserver,
 #            'operating_system': operating_system,

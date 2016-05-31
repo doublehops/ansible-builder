@@ -14,10 +14,10 @@ from printMessages import *
 def main():
 
     outputPath = config['outputPath']
-#    setupProvisioner(outputPath, config['vagrantHostname'])
+    setupProvisioner(outputPath, config['vagrantHostname'])
     createVagrantFile(config, oses)
     createTasks(config['tasks'], outputPath)
-    cleanupProvisioner(outputPath)
+#    cleanupProvisioner(outputPath)
 
     printPostInstall(config['vagrantIPAddress'], config['vagrantHostname'], config['outputPath'])
 

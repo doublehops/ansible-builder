@@ -4,11 +4,16 @@ import re, json, os.path, sys, shutil, pprint
 # Expects dest to include filename
 def copyTemplate(source, dest, params=[]):
 
+    if not os.path.isfile(source):
+        printException("Source does not exist: "+ source)
+        sys.exit(0)
+
     # Ensure destination path exists
     pos = dest.rfind('/')
     destPath = dest[:pos]
     if not os.path.isdir(destPath):
-        os.makedirs(dest)
+        print("making path: "+ destPath)
+        os.makedirs(destPath)
 
     # Read from source file
     f = open(source, 'r')
