@@ -3,8 +3,6 @@ from functions import *
 
 def createVagrantFile(config, oses):
 
-    print('-- Creating Vagrantfile --')
-
     params = { 'hostname': config['vagrantHostname'],
                'ipaddress': config['vagrantIPAddress'],
                'vagrantbox': oses[config['operating_system']]['vagrantbox'],
@@ -13,6 +11,6 @@ def createVagrantFile(config, oses):
     }
 
     source = 'files/Vagrantfile'
-    dest = config['outputPath'] +"/Vagrantfile"
+    dest = config['outputPath'] +"/tmp/Vagrantfile"
  
     copyTemplate(source, dest, params)
