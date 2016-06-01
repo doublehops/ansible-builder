@@ -1,7 +1,7 @@
 
 def printPostInstall(ip, hostname, path):
     print('\n###########################################################################')
-    print('##  You have just ran the installer.')
+    print('##  You have just ran the vm provisioner builder.')
     print('##  Make sure you add the Vagrant host to your hosts file.')
     print("##  Eg. `echo '"+ ip +"   "+ hostname +"' | sudo tee -a /etc/hosts`")
     print('##  Add the following to your ~/.ssh/config file')

@@ -12,7 +12,6 @@ def copyTemplate(source, dest, params=[]):
     pos = dest.rfind('/')
     destPath = dest[:pos]
     if not os.path.isdir(destPath):
-        print("making path: "+ destPath)
         os.makedirs(destPath)
 
     # Read from source file
@@ -63,7 +62,6 @@ def createPath(path):
 
 def addRoleToPlaybook(outputPath, role):
     
-    print("adding role: "+ role)
     playbookFile = outputPath +'/provisioners/playbook.yml'
     copyTemplate(playbookFile, playbookFile, {'roles': '- '+ role +"\n    {{roles}}"})
 
