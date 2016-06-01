@@ -11,6 +11,6 @@ def createVagrantFile(config, oses):
     }
 
     source = 'files/Vagrantfile'
-    dest = config['outputPath'] +"/tmp/Vagrantfile"
+    dest = config['outputPath'] +"/Vagrantfile"
  
     copyTemplate(source, dest, params)
