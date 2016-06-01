@@ -1,19 +1,19 @@
-operating_system = 'centos6'
+operating_system = 'debian'
 webserver = 'nginx'
 
 config = {
-    'vagrantHostname': 'auto.api',
-    'vagrantIPAddress': '192.168.30.10',
+    'vagrantHostname': 'secure.api',
+    'vagrantIPAddress': '192.168.30.99',
     'operating_system': operating_system,
-    'outputPath': '/var/www/autoproject',
-    'webserverProcessOwner': 'nginx', # nginx for centos6 nginx, www-data for all others
+    'outputPath': '/var/www/secure',
+    'webserverProcessOwner': 'www-data', # nginx for centos6 nginx, www-data for all others
     'tasks': {
         'add_ppas': {
             'operating_system': operating_system,
         },
         'webserver': {
             'type': webserver,
-            'hostname': 'auto.api',
+            'hostname': 'secure.api',
             'docroot': '/var/www/web',
             'operating_system': operating_system,
         },
