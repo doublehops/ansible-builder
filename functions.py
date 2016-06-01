@@ -63,6 +63,7 @@ def createPath(path):
 
 def addRoleToPlaybook(outputPath, role):
     
+    print("adding role: "+ role)
     playbookFile = outputPath +'/provisioners/playbook.yml'
     copyTemplate(playbookFile, playbookFile, {'roles': '- '+ role +"\n    {{roles}}"})
 
