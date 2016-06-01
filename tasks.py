@@ -10,8 +10,9 @@ from modules.add_ppas import *
 def createTasks(tasks, outputPath):
 
     # Process tasks in a specific order. PPAs must be done first
-    eval('include_add_ppas')(outputPath, tasks['add_ppas'])
-    tasks.pop('add_ppas')
+    if 'add_ppas' in tasks:
+        eval('include_add_ppas')(outputPath, tasks['add_ppas'])
+        tasks.pop('add_ppas')
 
     # Process any remaining tasks where order not important
     for (key, value) in tasks.items():
