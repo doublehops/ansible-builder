@@ -1,7 +1,19 @@
 import re, json, os.path, sys, shutil, pprint
 
-
+# Copy a template and replacing vars
+# Expects dest to include filename
 def copyTemplate(source, dest, params=[]):
+
+    if not os.path.isfile(source):
+        printException("Source does not exist: "+ source)
+        sys.exit(0)
+
+    # Ensure destination path exists
+    pos = dest.rfind('/')
+    destPath = dest[:pos]
+    if not os.path.isdir(destPath):
+        print("making path: "+ destPath)
+        os.makedirs(destPath)
 
     # Read from source file
     f = open(source, 'r')
@@ -14,9 +26,13 @@ def copyTemplate(source, dest, params=[]):
             file = re.sub('{{'+ key +'}}', value, file)
 
     # Write new file
-    f = open(dest, 'w')
-    f.write(file)
-    f.close()
+    try:
+        f = open(dest, 'w')
+        f.write(file)
+        f.close()
+    except IOError:
+        printException("Cannot write to destination: "+ dest)
+        raise
 
 
 def readJsonFile(source):
@@ -33,17 +49,21 @@ def readJsonFile(source):
             data = json.load(json_file)
             json_file.close()
     except ValueError:
-        print('Unable to parse JSON data: '+ file)
+        printException('Unable to parse JSON data: '+ file)
 
     return data
 
 
 def createPath(path):
 
-    os.makedirs(path, exist_ok=True)
+    try:
+        os.makedirs(path, exist_ok=True)
+    except:
+        print("unable to create path: "+ path)
 
 def addRoleToPlaybook(outputPath, role):
     
+    print("adding role: "+ role)
     playbookFile = outputPath +'/provisioners/playbook.yml'
     copyTemplate(playbookFile, playbookFile, {'roles': '- '+ role +"\n    {{roles}}"})
 
@@ -62,3 +82,10 @@ def getFamily(operatingSystem):
         return 'redhat'
     if operatingSystem in debianFamily:
         return 'debian'
+
+# Exception messages are hard to see. This
+# attempts to highlight them
+def printException(msg):
+
+    print(">>>>>>>>>>  "+ msg  +"  <<<<<<<<<<")
+    sys.exit(0)
