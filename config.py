@@ -1,11 +1,12 @@
 operating_system = 'debian'
 webserver = 'nginx'
+domain = 'auto.api'
 
 config = {
-    'vagrantHostname': 'mac.api',
+    'vagrantHostname': domain,
     'vagrantIPAddress': '192.168.30.98',
     'operating_system': operating_system,
-    'outputPath': '/Users/b2cloud/projects/autoproject',
+    'outputPath': '/var/www/auto-api',
     'webserverProcessOwner': 'www-data', # nginx for centos6 nginx, www-data for all others
     'tasks': {
         'add_ppas': {
@@ -13,7 +14,7 @@ config = {
         },
         'webserver': {
             'type': webserver,
-            'hostname': 'mac.api',
+            'hostname': domain,
             'docroot': '/var/www/web',
             'operating_system': operating_system,
         },
