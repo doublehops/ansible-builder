@@ -23,6 +23,3 @@
 
   - name: Mariadb | Create test database
     mysql_db: name={{ test_database }}
-
-  - name: Mariadb | Check that database backup path exists
-    file: dest=/var/www/files/database state=directory mode=777
