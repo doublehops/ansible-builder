@@ -1,2 +1,4 @@
 [local_dev]
 {{vagrantHostname}} system_user=vagrant ansible_ssh_pass=vagrant env=local_dev
+[some_remote_host]
+hostname system_user=probablynotrequired ansible_ssh_user=ubuntu end=some_host
