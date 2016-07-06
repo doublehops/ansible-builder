@@ -22,7 +22,16 @@
       state=started
 
   - name: MySQL | Set root password
-    mysql_user: name=root password={{ root_password }} priv=*.*:ALL,GRANT state=present
+    mysql_user: 
+        name=root 
+        password={{ root_password }}
+        priv=*.*:ALL,GRANT state=present
+        host={{ item }}
+    with_items: 
+        - "{{ ansible_hostname }}"
+        - 127.0.0.1
+        - ::1
+        - localhost
 
   - name: MySQL | Copy root password config to root user
     template: src="templates/my.cnf.j2" dest=/root/.my.cnf
