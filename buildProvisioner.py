@@ -13,6 +13,10 @@ from printMessages import *
 
 def main():
 
+    if config['operating_system'] not in oses:
+        print("operating_system is not valid: ", config['operating_system'])
+        sys.exit(1)
+
     outputPath = config['outputPath']
     setupProvisioner(outputPath, config['vagrantHostname'])
     createVagrantFile(config, oses)
