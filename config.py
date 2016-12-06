@@ -1,12 +1,12 @@
-operating_system = 'debian'
+operating_system = 'ubuntu16'
 webserver = 'nginx'
-domain = 'core.api'
+domain = '192.168.30.56'
 
 config = {
     'vagrantHostname': domain,
-    'vagrantIPAddress': '192.168.30.97',
+    'vagrantIPAddress': '192.168.30.56',
     'operating_system': operating_system,
-    'outputPath': '/var/www/b2core',
+    'outputPath': 'test2',
     'webserverProcessOwner': 'www-data', # nginx for centos6 nginx, www-data for all others
     'tasks': {
         'add_ppas': {
