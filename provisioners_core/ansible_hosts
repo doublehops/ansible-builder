@@ -1,4 +1,4 @@
 [local_dev]
-{{vagrantHostname}} ansible_ssh_user=vagrant ansible_ssh_pass=vagrant env=local_dev
+{{vagrantHostname}} ansible_ssh_user={{vagrantUser}} {{vagrantPass}} env=local_dev
 [some_remote_host]
 hostname ansible_ssh_user=ubuntu end=some_host
