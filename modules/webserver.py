@@ -24,4 +24,8 @@ def include_webserver(outputPath, params):
     vhostDest = outputPath +'/provisioners/roles/webserver/tasks/main.yml'
     copyTemplate(vhostSrc, vhostDest, templateVars)
 
+    handlersSrc = 'provisioners_templates/roles/webserver/handlers/main.yml'
+    handlersDest = outputPath +'/provisioners/roles/webserver/handlers/main.yml'
+    copyTemplate(handlersSrc, handlersDest)
+
     addRoleToPlaybook(outputPath, 'webserver')
