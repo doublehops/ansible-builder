@@ -22,19 +22,25 @@
       state=started
 
   - name: MySQL | Set root password
-    mysql_user: name=root password={{ root_password }} priv=*.*:ALL,GRANT state=present
+    mysql_user: 
+        name=root 
+        password={{ root_password }}
+        priv=*.*:ALL,GRANT state=present
+        host={{ item }}
+    with_items: 
+        - "{{ ansible_hostname }}"
+        - 127.0.0.1
+        - ::1
+        - localhost
 
   - name: MySQL | Copy root password config to root user
     template: src="templates/my.cnf.j2" dest=/root/.my.cnf
 
   - name: MySQL | Create dev user
-    mysql_user: login_user=root login_password={{ root_password }} name={{ username }} password={{ password }} priv="*.*:CREATE,DROP,DELETE,INSERT,SELECT,UPDATE,LOCK TABLES" state=present
+    mysql_user: login_user=root login_password={{ root_password }} name={{ username }} password={{ password }} priv="*.*:ALL,GRANT" state=present
 
   - name: MySQL | Create development database
     mysql_db: name={{ database }}
 
   - name: MySQL | Create test database
     mysql_db: name={{ test_database }}
-
-  - name: MySQL | Check that database backup path exists
-    file: dest=/var/www/files/database state=directory mode=777

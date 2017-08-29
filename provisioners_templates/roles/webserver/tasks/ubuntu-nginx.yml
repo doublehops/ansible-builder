@@ -15,7 +15,7 @@
   service: name=nginx state=started
 
 - name: Nginx | Check that path /var/www exists
-  file: dest=/var/www state=directory owner={{ system_user }} group={{ system_user }}
+  file: dest=/var/www state=directory owner={{ ansible_ssh_user }} group={{ ansible_ssh_user }}
 
 - name: Nginx | Check vhost path exists
   file: dest=/etc/nginx/sites-available state=directory owner=root group=root mode=0700

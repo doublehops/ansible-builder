@@ -6,6 +6,14 @@ Todo
 
 # Setting up hosts for provisioning
 
+Firstly, modify `config.py` to suit your needs and run ./buildProvisioner.py. Note that the
+output will be sent to the `outputPath` directory. Do not make this the same as the
+config.py file.
+
+This will create the host (in ansible_hosts) and required var files for one host. To create 
+addtional hosts (perhaps remote) you need to add them to the ansible_hosts file and create 
+corresponding var files for each role. You should also create an entry for each server in ~/.ssh/config
+
 Setting up hosts is necessary for provisioning. Rather than use 
 `vagrant provision` it is better to use the `dev/provision.sh <hostname>` 
 as it allow you to add parameters and also provision remote servers.

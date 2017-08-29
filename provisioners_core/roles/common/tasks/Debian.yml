@@ -9,6 +9,8 @@
     - htop
     - git
     - ntp
+    - zip
+    - unzip
 
 - name: Bash | Copy Bash alias file for root
   template: src="bash_aliases.j2" dest=~/.bash_aliases

@@ -16,13 +16,10 @@
     template: src="templates/my.cnf.j2" dest=/root/.my.cnf
 
   - name: Mariadb | Create dev user
-    mysql_user: login_user=root login_password={{ root_password }} name={{ username }} password={{ password }} priv="*.*:CREATE,DROP,DELETE,INSERT,SELECT,UPDATE,LOCK TABLES" state=present
+    mysql_user: login_user=root login_password={{ root_password }} name={{ username }} password={{ password }} priv="*.*:CREATE,DROP,DELETE,INSERT,SELECT,UPDATE,LOCK TABLES, ALTER" state=present
 
   - name: Mariadb | Create development database
     mysql_db: name={{ database }}
 
   - name: Mariadb | Create test database
     mysql_db: name={{ test_database }}
-
-  - name: Mariadb | Check that database backup path exists
-    file: dest=/var/www/files/database state=directory mode=777
