@@ -10,4 +10,8 @@ def include_php7(outputPath, params):
     taskDest = outputPath +'/provisioners/roles/php7/tasks/main.yml'
     copyTemplate(taskSrc, taskDest)
 
+    handlersSrc = 'provisioners_templates/roles/php7/handlers/main.yml'
+    handlersDest = outputPath +'/provisioners/roles/php7/handlers/main.yml'
+    copyTemplate(handlersSrc, handlersDest)
+
     addRoleToPlaybook(outputPath, 'php7')

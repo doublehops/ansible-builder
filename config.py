@@ -1,12 +1,12 @@
 operating_system = 'debian'
 webserver = 'nginx'
-domain = 'auto.api'
+domain = 'autoauto.dev'
 
 config = {
     'vagrantHostname': domain,
-    'vagrantIPAddress': '192.168.30.98',
+    'vagrantIPAddress': '192.168.30.101',
     'operating_system': operating_system,
-    'outputPath': '/var/www/auto-api',
+    'outputPath': '/var/www/autoauto',
     'webserverProcessOwner': 'www-data', # nginx for centos6 nginx, www-data for all others
     'tasks': {
         'add_ppas': {
