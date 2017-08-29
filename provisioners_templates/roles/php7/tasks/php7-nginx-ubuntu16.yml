@@ -8,6 +8,8 @@
       - php-curl
       - php-gd
       - php-mbstring
+      - php7.0-dom
+      - php7.0-zip
 
   - name: PHP | Install composer
     shell:
