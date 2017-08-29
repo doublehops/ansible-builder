@@ -2,7 +2,7 @@ import shutil, pprint, os, sys
 
 from functions import *
 
-def setupProvisioner(outputPath, vagrantHostname):
+def setupProvisioner(outputPath, vagrantHostname, operatingSystem):
 
     print('-- Setting up provisioner --')
 
@@ -10,7 +10,22 @@ def setupProvisioner(outputPath, vagrantHostname):
 
     copyTemplate('provisioners_core/playbook.yml', outputPath +'/provisioners/playbook.yml')
     devHostFile = outputPath +'/provisioners/ansible_hosts'
-    copyTemplate('provisioners_core/ansible_hosts', devHostFile, {'vagrantHostname': vagrantHostname})
+
+    vagrantUser = 'vagrant'
+    vagrantPass = 'ansible_ssh_pass=vagrant'
+
+    if operatingSystem is 'ubuntu16':
+        vagrantUser = 'ubuntu'
+        vagrantPass = ''
+
+
+    templateVars = {
+        'vagrantHostname': vagrantHostname,
+        'vagrantUser': vagrantUser,
+        'vagrantPass': vagrantPass,
+    }
+
+    copyTemplate('provisioners_core/ansible_hosts', devHostFile, templateVars)
 
     shutil.copytree('dev', outputPath +'/dev')
     shutil.copytree('provisioners_core/roles/common', outputPath +'/provisioners/roles/common')

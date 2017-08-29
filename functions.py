@@ -61,7 +61,7 @@ def createPath(path):
         print("unable to create path: "+ path)
 
 def addRoleToPlaybook(outputPath, role):
-    
+
     playbookFile = outputPath +'/provisioners/playbook.yml'
     copyTemplate(playbookFile, playbookFile, {'roles': '- '+ role +"\n    {{roles}}"})
 
@@ -74,7 +74,7 @@ def dd(obj):
 def getFamily(operatingSystem):
 
     redhatFamily = ['redhat','centos6','centos7']
-    debianFamily = ['debian','ubuntu']
+    debianFamily = ['debian','ubuntu','ubuntu16']
 
     if operatingSystem in redhatFamily:
         return 'redhat'
