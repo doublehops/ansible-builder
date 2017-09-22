@@ -1,12 +1,12 @@
-operating_system = 'ubuntu16'
+operating_system = 'debian'
 webserver = 'nginx'
-domain = '192.168.30.56'
+domain = 'local.dev'
 
 config = {
     'vagrantHostname': domain,
     'vagrantIPAddress': '192.168.30.56',
     'operating_system': operating_system,
-    'outputPath': 'test2',
+    'outputPath': '/var/www/localdev', # Filesystem path to where to create the Ansible scripts
     'webserverProcessOwner': 'www-data', # nginx for centos6 nginx, www-data for all others
     'tasks': {
         'add_ppas': {
