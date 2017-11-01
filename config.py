@@ -1,4 +1,4 @@
-operating_system = 'debian'
+operating_system = 'debian9'
 webserver = 'nginx'
 domain = 'local.dev'
 
