@@ -31,7 +31,7 @@ oses = {
                       'vagrantbox_url': '',
          },
          'ubuntu16': { 'installer': 'apt',
-                       'vagrantbox': 'ubuntu/trusty64',
-                       'vagrantbox_url': 'https://vagrantcloud.com/ubuntu/trusty64',
+                       'vagrantbox': 'envimation/ubuntu-xenial',
+                       'vagrantbox_url': 'https://atlas.hashicorp.com/envimation/boxes/ubuntu-xenial',
          },
 }

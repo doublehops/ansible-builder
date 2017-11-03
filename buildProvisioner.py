@@ -23,11 +23,6 @@ def main():
     createTasks(config['tasks'], outputPath)
     cleanupProvisioner(outputPath)
 
-    #ubuntu16 vagrant box is not built from a base box so requires manual copy of private key
-    #todo - build (or find) base box that has python 2.7 installed
-    if config['operating_system'] is 'ubuntu16':
-        copyTemplate('files/private_key', outputPath +'/private_key')
-
     printPostInstall(config['vagrantIPAddress'], config['vagrantHostname'], config['outputPath'])
 
 

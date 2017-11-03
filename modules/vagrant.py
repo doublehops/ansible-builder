@@ -11,11 +11,6 @@ def createVagrantFile(config, oses):
                'auth': '',
     }
 
-    if config['operating_system'] is 'ubuntu16':
-        params['auth'] = """
-    config.ssh.username = \"ubuntu\"
-    config.ssh.private_key_path = \"private_key\""""
-
     source = 'files/Vagrantfile'
     dest = config['outputPath'] +"/Vagrantfile"
 
