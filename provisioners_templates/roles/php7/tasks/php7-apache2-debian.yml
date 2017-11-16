@@ -15,11 +15,8 @@
       - php7.0-zip
     notify: apache2-restart
 
-  - name: PHP | PHPDev | Install composer
-    shell:
-      curl -sS https://getcomposer.org/installer | /usr/bin/php && /bin/mv -f composer.phar /usr/local/bin/composer
-      creates=/usr/local/bin/composer
-
   - name: Apache | Enable mod_php7.0
     apache2_module: state=present name=php7.0
     notify: apache2-restart
+
+  - include:  roles/php7/tasks/composer_task.yml composer_path={{ composer_path}}

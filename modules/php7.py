@@ -14,6 +14,10 @@ def include_php7(outputPath, params):
     handlersDest = outputPath +'/provisioners/roles/php7/handlers/main.yml'
     copyTemplate(handlersSrc, handlersDest)
 
+    handlersSrc = 'provisioners_templates/roles/php7/tasks/composer_task.yml'
+    handlersDest = outputPath +'/provisioners/roles/php7/tasks/composer_task.yml'
+    copyTemplate(handlersSrc, handlersDest)
+
     handlersSrc = 'provisioners_templates/roles/php7/vars/main.yml'
     handlersDest = outputPath +'/provisioners/roles/php7/vars/main.yml'
     copyTemplate(handlersSrc, handlersDest)
