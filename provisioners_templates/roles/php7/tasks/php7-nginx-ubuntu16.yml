@@ -1,4 +1,6 @@
 ---
+  - include_vars: "vars/main.yml"
+
   - name: PHP | Install php7.0
     apt: pkg={{ item }} state=latest force=yes
     with_items:
@@ -12,7 +14,7 @@
       - php7.0-zip
 
   - name: PHP | Check if Composer is installed.
-    stat: "path=/usr/local/bin/composer"
+    stat: "path={{ composer_path }}"
     register: composer_bin
 
   - name: PHP | Retrieve Composer installer
@@ -24,14 +26,14 @@
 
   - name: PHP | Run Composer installer
     command: >
-      php composer-installer.php 
+      php composer-installer.php
       chdir=/tmp
     when: not composer_bin.stat.exists
 
   - name: PHP | Move Composer into globally-accessible location.
     shell: >
-      mv /tmp/composer.phar /usr/local/bin/composer
-      creates=/usr/local/bin/composer
+      mv /tmp/composer.phar {{ composer_path }}
+      creates={{ composer_path }}
     when: not composer_bin.stat.exists
 
   - name: PHP | Ensure listen.group is set.
