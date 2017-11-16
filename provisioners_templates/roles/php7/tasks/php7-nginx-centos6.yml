@@ -16,7 +16,4 @@
       - php70w-xml
     notify: httpd-restart
 
-  - name: PHP | PHPDev | Install composer
-    shell:
-      curl -sS https://getcomposer.org/installer | /usr/bin/php && /bin/mv -f composer.phar /usr/local/bin/composer
-      creates=/usr/local/bin/composer
+  - include:  roles/php7/tasks/composer_task.yml composer_path={{ composer_path}}

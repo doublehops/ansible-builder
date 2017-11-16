@@ -1,5 +1,7 @@
 ---
-  - name: Install php7.0
+  - include_vars: "vars/main.yml"
+
+  - name: PHP | Install php7.0
     apt: pkg={{ item }} state=latest force=yes
     with_items:
       - php-fpm
@@ -10,11 +12,6 @@
       - php-mbstring
       - php7.0-dom
       - php7.0-zip
-
-  - name: PHP | Install composer
-    shell:
-      curl -sS https://getcomposer.org/installer | /usr/bin/php && /bin/mv -f ./composer.phar /usr/local/bin/composer
-      creates=/usr/local/bin/composer
 
   - name: PHP | Ensure listen.group is set.
     lineinfile: dest=/etc/php/7.0/fpm/pool.d/www.conf regexp='listen.group = www-data' line='listen.group = www-data' state=present
@@ -30,3 +27,5 @@
 
   - name: PHP | Add vendor/bin to the user's path
     shell: echo 'export PATH="$PATH:/var/www/vendor/bin"' >> ~/.bashrc
+
+  - include:  roles/php7/tasks/composer_task.yml composer_path={{ composer_path}}

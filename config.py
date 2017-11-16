@@ -1,12 +1,12 @@
 operating_system = 'ubuntu16'
 webserver = 'nginx'
-domain = 'snapp.api'
+domain = 'ansible.dev'
 
 config = {
     'vagrantHostname': domain,
-    'vagrantIPAddress': '192.168.30.76',
+    'vagrantIPAddress': '192.168.30.77',
     'operating_system': operating_system,
-    'outputPath': '/var/www/snapp-api', # Filesystem path to where to create the Ansible scripts
+    'outputPath': '/var/www/ansible-dev', # Filesystem path to where to create the Ansible scripts
     'webserverProcessOwner': 'www-data', # nginx for centos6 nginx, www-data for all others
     'tasks': {
         'add_ppas': {
