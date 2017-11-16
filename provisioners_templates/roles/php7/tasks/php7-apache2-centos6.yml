@@ -16,4 +16,4 @@
       - php70w-xml
     notify: httpd-restart
 
-  - include:  roles/php7/tasks/composer_task.yml composer_path={{ composer_path}}
+  - include_tasks:  roles/php7/tasks/composer_task.yml

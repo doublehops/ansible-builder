@@ -19,4 +19,4 @@
     apache2_module: state=present name=php7.0
     notify: apache2-restart
 
-  - include:  roles/php7/tasks/composer_task.yml composer_path={{ composer_path}}
+  - include_tasks:  roles/php7/tasks/composer_task.yml

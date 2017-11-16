@@ -28,4 +28,4 @@
   - name: PHP | Add vendor/bin to the user's path
     shell: echo 'export PATH="$PATH:/var/www/vendor/bin"' >> ~/.bashrc
 
-  - include:  roles/php7/tasks/composer_task.yml composer_path={{ composer_path}}
+  - include_tasks:  roles/php7/tasks/composer_task.yml
