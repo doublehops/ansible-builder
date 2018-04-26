@@ -11,7 +11,7 @@
   file: dest=/var/www/index.html state=absent
 
 - name: Apache | Copy vhost files
-  template: src="{{hostTemplate}}" dest=/etc/httpd/conf.d/default.conf owner=root group=root mode=666
+  template: src="templates/default.conf" dest=/etc/httpd/conf.d/default.conf owner=root group=root mode=666
   notify: 
   - httpd-restart
 

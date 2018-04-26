@@ -10,9 +10,8 @@ def include_webserver(outputPath, params):
     if family == 'redhat':
         log_file_type = 'httpd'
 
-    #shutil.copytree('provisioners_core/roles/webserver', outputPath +'/provisioners/roles/webserver')
     templateFile = 'provisioners_core/roles/webserver/templates/local_dev_'+ params['type'] +'-'+ params['operating_system'] +'.j2'
-    templateDest = outputPath +'/provisioners/roles/webserver/templates/local_dev_'+ params['type'] +'-'+ params['operating_system'] +'.j2'
+    templateDest = outputPath +'/provisioners/roles/webserver/templates/default.conf'
     copyTemplate(templateFile, templateDest)
 
     copyTemplate('provisioners_core/roles/webserver/templates/index.j2', outputPath +'/provisioners/roles/webserver/templates/index.j2')
@@ -22,7 +21,6 @@ def include_webserver(outputPath, params):
                     'type': params['type'],
                     'log_file_type': log_file_type,
     }
-    templateVars['hostTemplate'] = 'templates/local_dev_'+ params['type'] +'-'+ params['operating_system'] +'.j2'
 
     varsFile = 'provisioners_core/roles/webserver/vars/local_dev.yml'
     varsDest = outputPath +'/provisioners/roles/webserver/vars/local_dev.yml'

@@ -24,7 +24,7 @@
   file: dest=/etc/nginx/passwords state=directory owner=root group=root mode=0755
 
 - name: Nginx | Copy host file
-  template: src="{{hostTemplate}}" dest=/etc/nginx/sites-available/default.conf mode=0700
+  template: src="templates/default.conf" dest=/etc/nginx/sites-available/default.conf mode=0700
   notify: nginx-restart
 
 - name: Nginx | Create host symlink
