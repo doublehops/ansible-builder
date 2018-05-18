@@ -1,17 +1,14 @@
-operating_system = 'ubuntu16'
-webserver = 'nginx'
-domain = 'ansible.project'
+operating_system = 'ubuntu'
+webserver = 'apache2'
+domain = 'project.site'
 
 config = {
     'vagrantHostname': domain,
-    'vagrantIPAddress': '192.168.30.54',
+    'vagrantIPAddress': '192.168.30.53',
     'operating_system': operating_system,
-    'outputPath': '/var/www/ansible-project', # Filesystem path to where to create the Ansible scripts
+    'outputPath': '/var/www/project-vm', # Filesystem path to where to create the Ansible scripts
     'webserverProcessOwner': 'www-data', # nginx for centos6 nginx, www-data for all others
     'tasks': {
-        'add_ppas': {
-            'operating_system': operating_system,
-        },
         'webserver': {
             'type': webserver,
             'hostname': domain,

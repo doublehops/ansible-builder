@@ -1,0 +1,33 @@
+---
+- include_vars: "vars/{{env}}.yml"
+
+- name: Apache | Install Apache
+  yum: pkg=httpd state=latest
+
+- name: Apache | Check vhosts path exists
+  file: dest=/etc/httpd/sites-available state=directory
+
+- name: Apache | Remove default index file
+  file: dest=/var/www/index.html state=absent
+
+- name: Apache | Copy vhost files
+  template: src="templates/default.conf" dest=/etc/httpd/conf.d/default.conf owner=root group=root mode=666
+  notify: 
+  - httpd-restart
+
+- name: Apache | Remove default vhost
+  file: dest=/etc/httpd/conf.d/welcome.conf state=absent
+
+- name: Apache | Ensure web directory exists
+  file: dest="{{docroot}}" state=directory owner="{{ansible_user}}" group="{{ansible_user}}"
+
+- name: Apache | Copy index template
+  template: src="templates/index.j2" dest="{{docroot}}/index.php" owner="{{ansible_user}}" group="{{ansible_user}}" mode=755
+
+- name: Apache | Ensure log directory exists
+  file: dest=/var/log/httpd state=directory
+
+- name: Apache | Ensure that Apache is running
+  service:
+      name=httpd
+      state=started
