@@ -1,0 +1,46 @@
+---
+  - include_vars: "vars/{{env}}.yml"
+
+  - name: install yum replace plugin
+    yum: state=present name=yum-plugin-replace
+
+  - name: upgrade mysql version 
+    command: yum -y replace mysql-libs --replace-with mysql55w-libs
+    ignore_errors: True
+
+  - name: MySQL | Install MySQL
+    yum: pkg={{ item }} state=installed
+    with_items:
+      - mysql55w-libs
+      - mysql55w
+      - mysql55w-server
+      - MySQL-python
+
+  - name: MySQL | Ensite MySQL is running
+    service:
+      name=mysqld
+      state=started
+
+  - name: MySQL | Set root password
+    mysql_user: 
+        name=root 
+        password={{ root_password }}
+        priv=*.*:ALL,GRANT state=present
+        host={{ item }}
+    with_items: 
+        - "{{ ansible_hostname }}"
+        - 127.0.0.1
+        - ::1
+        - localhost
+
+  - name: MySQL | Copy root password config to root user
+    template: src="templates/my.cnf.j2" dest=/root/.my.cnf
+
+  - name: MySQL | Create dev user
+    mysql_user: login_user=root login_password={{ root_password }} name={{ username }} password={{ password }} priv="*.*:ALL,GRANT" state=present
+
+  - name: MySQL | Create development database
+    mysql_db: name={{ database }}
+
+  - name: MySQL | Create test database
+    mysql_db: name={{ test_database }}
