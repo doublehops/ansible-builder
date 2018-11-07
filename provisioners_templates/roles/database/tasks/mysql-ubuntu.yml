@@ -2,7 +2,7 @@
   - include_vars: "vars/{{env}}.yml"
 
   - name: MySQL | Install MySQL
-    apt: pkg={{ item }} state=installed force=yes
+    apt: pkg={{ item }} state=present force=yes
     with_items:
       - mysql-server
       - mysql-client

@@ -5,3 +5,8 @@
   - name: nginx-started
     service: name=nginx state=start
 
+  - name: apache2-restart
+    service: name=apache2 state=restarted
+
+  - name: apache2-started
+    service: name=apache2 state=start
