@@ -1,0 +1,25 @@
+---
+  - name: Install xdebug
+    apt: pkg=php7.2-xdebug state=latest force=yes
+    notify: apache2-restart
+
+  - name: Xdebug enable
+    lineinfile:
+      path: /etc/php/7.2/apache2/php.ini
+      regex: '^xdebug.remote_host'
+      line: 'xdebug.remote_host=192.168.30.1'
+    notify: apache2-restart
+
+  - name: Xdebug remote enable
+    lineinfile:
+      path: /etc/php/7.2/apache2/php.ini
+      regex: '^xdebug.remote_enable'
+      line: 'xdebug.remote_enable=1'
+    notify: apache2-restart
+
+  - name: Xdebug remote autostart
+    lineinfile:
+      path: /etc/php/7.2/apache2/php.ini
+      regex: '^xdebug.remote_autostart'
+      line: 'xdebug.remote_autostart=1'
+    notify: apache2-restart
