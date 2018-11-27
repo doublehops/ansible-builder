@@ -1,12 +1,14 @@
 operating_system = 'ubuntu'
 webserver = 'apache2'
-domain = 'ibaapp-api-vm'
+domain = 'proj-api-vm'
+outputPath = '/Users/damien/projects/proj-api-vm'
+ipAddress = '192.168.30.55'
 
 config = {
     'vagrantHostname': domain,
-    'vagrantIPAddress': '192.168.30.53',
+    'vagrantIPAddress': ipAddress,
     'operating_system': operating_system,
-    'outputPath': '/Users/damien/projects/ibaapp-api-vm', # Filesystem path to where to create the Ansible scripts
+    'outputPath': outputPath, # Filesystem path to where to create the Ansible scripts
     'webserverProcessOwner': 'www-data', # nginx for centos6 nginx, www-data for all others
     'tasks': {
         'webserver': {

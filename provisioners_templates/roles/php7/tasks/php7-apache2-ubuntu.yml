@@ -3,19 +3,20 @@
     apt_repository: repo='ppa:ondrej/php' state=present
 
   - name: Install php7.2
-    apt: pkg={{ item }} state=latest force=yes
-    with_items:
-      - libapache2-mod-php7.2
-      - php7.2-cli
-      - php7.2-cgi
-      - php-pear
-      - php7.2-mysql
-      - php7.2-curl
-      - php7.2-dev
-      - php7.2-gd
-      - php7.2-dom
-      - php7.2-zip
-      - php7.2-mbstring
+    apt: 
+      pkg:
+        - libapache2-mod-php7.2
+        - php7.2-cli
+        - php7.2-cgi
+        - php-pear
+        - php7.2-mysql
+        - php7.2-curl
+        - php7.2-dev
+        - php7.2-gd
+        - php7.2-dom
+        - php7.2-zip
+        - php7.2-mbstring
+      state: present
     notify: apache2-restart
 
   - name: Apache | Enable mod_php7.2
